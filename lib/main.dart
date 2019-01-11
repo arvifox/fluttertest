@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'file01.dart';
 
-//void main() => runApp(MyApp());
+void main() => runApp(MyApp23());
 
-void main() => runApp(Directionality(
-    textDirection: TextDirection.ltr,
-    child: Container(
-      color: Color(0xFF555555),
-      child: Center(
-        child: MyAppl(),
-      ),
-    )));
+//void main() => runApp(Directionality(
+//    textDirection: TextDirection.ltr,
+//    child: Container(
+//      color: Color(0xFF555555),
+//      child: Center(
+//        child: MyAppl(),
+//      ),
+//    )));
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -243,8 +244,10 @@ class MyGestureDet extends StatelessWidget {
         onTap: () {
           print('You pressed me');
         },
-        child: Container( // нашей кнопкой будет контейнер
-          decoration: BoxDecoration( // стилизуем контейнер
+        child: Container(
+          // нашей кнопкой будет контейнер
+          decoration: BoxDecoration(
+            // стилизуем контейнер
             shape: BoxShape.circle, // зададим ему круглую форму
             color: Color(0xFF17A2B8), // и покрасим его в синий
           ),
