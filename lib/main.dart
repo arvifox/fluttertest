@@ -8,13 +8,7 @@ void main() => runApp(Directionality(
     child: Container(
       color: Color(0xFF555555),
       child: Center(
-        child: Text(
-          'Hello flutter dart',
-          style: TextStyle(
-            color: Color(0xFF223344),
-            fontSize: 20.0,
-          ),
-        ),
+        child: MyAppl(),
       ),
     )));
 
@@ -123,5 +117,151 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class MyAppl extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          vertical: 60.0,
+          horizontal: 20.0,
+        ),
+        color: Color(0xFFFFFFFF),
+        child: Content(),
+      ),
+    );
+  }
+}
+
+class Content extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Counter('Manchester United'),
+        Counter('Juventus'),
+      ],
+    );
+  }
+}
+
+class Counter extends StatefulWidget {
+  final String _name;
+  Counter(this._name);
+
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 10.0),
+      padding: EdgeInsets.all(4.0),
+      decoration: BoxDecoration(
+        border: Border.all(color: Color(0xFFFD6A02)),
+        borderRadius: BorderRadius.circular(4.0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // widget — это свойство класса State, в котором хранится
+          // ссылка на объект создавший текущий стейт, то есть на наш виджет
+          _CounterLabel(widget._name),
+          _CounterButton(
+            count,
+            onPressed: () {
+              setState(() {
+                ++count;
+              });
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CounterLabel extends StatelessWidget {
+  static const textStyle = TextStyle(
+    color: Color(0xFF000000),
+    fontSize: 26.0,
+  );
+
+  final String _label;
+  _CounterLabel(this._label);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _label,
+      style: _CounterLabel.textStyle,
+    );
+  }
+}
+
+class _CounterButton extends StatelessWidget {
+  final _count;
+  final onPressed;
+  _CounterButton(this._count, {@required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        onPressed();
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 6.0),
+        decoration: BoxDecoration(
+          color: Color(0xFFFD6A02),
+          borderRadius: BorderRadius.circular(4.0),
+        ),
+        child: Center(
+          child: Text(
+            '$_count',
+            style: TextStyle(fontSize: 20.0),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyGestureDet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: GestureDetector(
+        onTap: () {
+          print('You pressed me');
+        },
+        child: Container( // нашей кнопкой будет контейнер
+          decoration: BoxDecoration( // стилизуем контейнер
+            shape: BoxShape.circle, // зададим ему круглую форму
+            color: Color(0xFF17A2B8), // и покрасим его в синий
+          ),
+          width: 80.0,
+          height: 80.0,
+        ),
+      ),
+    );
+  }
+}
+
+class MyStatelessWidget extends StatelessWidget {
+  final String name;
+  MyStatelessWidget(this.name);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('Hello, $name!');
   }
 }
