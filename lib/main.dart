@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-void main() => runApp(MyApp());
+//void main() => runApp(MyApp());
+
+void main() => runApp(Directionality(
+    textDirection: TextDirection.ltr,
+    child: Container(
+      color: Color(0xFF555555),
+      child: Center(
+        child: Text(
+          'Hello flutter dart',
+          style: TextStyle(
+            color: Color(0xFF223344),
+            fontSize: 20.0,
+          ),
+        ),
+      ),
+    )));
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
