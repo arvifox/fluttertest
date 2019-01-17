@@ -39,14 +39,14 @@ class _SplashImageState extends State<_SplashImage> {
   @override
   void initState() {
     super.initState();
-    _loadData();
+    _loadData(_afterSplash());
   }
 
-  void _loadData() async {
+  void _loadData(ff) async {
 //    await Timer(Duration(seconds: 6), () {});
 //    String dataURL = "http://www.mail.ru";
 //    http.Response response = await http.get(dataURL);
     await Future.delayed(const Duration(seconds: 4), () {});
-    _afterSplash();
+    ff();
   }
 }
