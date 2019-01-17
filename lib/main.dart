@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'file01.dart';
 import 'nav_drawer.dart';
+import 'advert/splash.dart';
 
-void main() => runApp(MyAppDrawer());
+void main() => runApp(AdvertSplash());
 
 //void main() => runApp(Directionality(
 //    textDirection: TextDirection.ltr,
@@ -153,6 +154,7 @@ class Content extends StatelessWidget {
 
 class Counter extends StatefulWidget {
   final String _name;
+
   Counter(this._name);
 
   @override
@@ -198,6 +200,7 @@ class _CounterLabel extends StatelessWidget {
   );
 
   final String _label;
+
   _CounterLabel(this._label);
 
   @override
@@ -212,6 +215,7 @@ class _CounterLabel extends StatelessWidget {
 class _CounterButton extends StatelessWidget {
   final _count;
   final onPressed;
+
   _CounterButton(this._count, {@required this.onPressed});
 
   @override
@@ -262,6 +266,7 @@ class MyGestureDet extends StatelessWidget {
 
 class MyStatelessWidget extends StatelessWidget {
   final String name;
+
   MyStatelessWidget(this.name);
 
   @override
