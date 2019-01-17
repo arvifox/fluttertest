@@ -39,7 +39,7 @@ class _SplashImageState extends State<_SplashImage> {
   @override
   void initState() {
     super.initState();
-    _loadData(_afterSplash());
+    _loadData(_afterSplash);
   }
 
   void _loadData(ff) async {
