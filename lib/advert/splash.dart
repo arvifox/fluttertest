@@ -1,7 +1,5 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import '../nav_drawer.dart';
-
+import 'mainscreen.dart';
 import 'dart:async';
 
 class AdvertSplash extends StatelessWidget {
@@ -27,7 +25,8 @@ class _SplashImage extends StatefulWidget {
 
 class _SplashImageState extends State<_SplashImage> {
   _afterSplash() {
-    Route route = MaterialPageRoute(builder: (context) => MyHomePage(title: ""));
+    Route route =
+        MaterialPageRoute(builder: (context) => AdvertMain(title: "sldkf"));
     Navigator.of(context).push(route);
   }
 
@@ -43,7 +42,7 @@ class _SplashImageState extends State<_SplashImage> {
   }
 
   void _loadData(after()) async {
-    await Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 3), () {
       after();
     });
   }
