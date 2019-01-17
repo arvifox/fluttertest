@@ -26,10 +26,9 @@ class _SplashImage extends StatefulWidget {
 }
 
 class _SplashImageState extends State<_SplashImage> {
-
   _afterSplash() {
-    Route route = MaterialPageRoute(builder: (context) => MyAppDrawer());
-    Navigator.of(context).pushReplacement(route);
+    Route route = MaterialPageRoute(builder: (context) => MyHomePage(title: ""));
+    Navigator.of(context).push(route);
   }
 
   @override

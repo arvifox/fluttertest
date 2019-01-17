@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'file01.dart';
 import 'nav_drawer.dart';
-import 'advert/splash.dart';
+import 'advert/advertapp.dart';
 
-void main() => runApp(AdvertSplash());
+void main() => runApp(AdvertApp());
 
 //void main() => runApp(Directionality(
 //    textDirection: TextDirection.ltr,
