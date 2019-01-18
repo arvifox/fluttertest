@@ -26,6 +26,8 @@ dependencies:
 
   shared_preferences: ^0.4.3
 
+  xml: ^3.2.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
