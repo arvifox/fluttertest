@@ -31,8 +31,7 @@ class _AdvertListState extends State<AdvertList> {
     if (response.statusCode == 200) {
       xml.XmlDocument body = xml.parse(utf8.decode(response.bodyBytes));
       var d = body.findAllElements("item");
-      var f =
-          d.map((no) => _AnAdvert.title(no.findElements("title").single.text));
+      var f = d.map((no) => _AnAdvert.fromXml(no));
       ads = f.toList();
       _reloadWidgets();
     }
@@ -61,8 +60,21 @@ class _AdvertListState extends State<AdvertList> {
 class _AnAdvert {
   String title;
   String desc;
+  List<String> images = [];
 
   _AnAdvert(this.title, this.desc);
 
   _AnAdvert.title(String title) : this(title, "");
+
+  _AnAdvert.fromXml(xml.XmlElement xe) {
+    title = xe.findElements("title").single.text;
+    desc = xe.findElements("description").single.text;
+    images.clear();
+    xe
+        .findElements("images")
+        .single
+        .findElements("image")
+        .map((n) => n.text)
+        .forEach(images.add);
+  }
 }
