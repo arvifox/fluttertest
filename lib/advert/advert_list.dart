@@ -10,11 +10,12 @@ class AdvertList extends StatefulWidget {
 }
 
 class _AdvertListState extends State<AdvertList> {
-  List ads = [];
+  List<_AnAdvert> ads = [];
+  List<Widget> ads_widget = [];
 
   @override
   Widget build(BuildContext context) {
-    return Text("size=" + ads.length.toString());
+    return ListView(children: ads_widget);
   }
 
   @override
@@ -31,10 +32,27 @@ class _AdvertListState extends State<AdvertList> {
       var d = body.findAllElements("item");
       var f =
           d.map((no) => _AnAdvert.title(no.findElements("title").single.text));
-      setState(() {
-        ads = f.toList();
-      });
+      ads = f.toList();
+      _reloadWidgets();
     }
+  }
+
+  void _reloadWidgets() {
+    setState(() {
+      ads_widget.clear();
+      for (var i = 0; i < ads.length; i++) {
+        ads_widget.add(_getRow(i));
+      }
+    });
+  }
+
+  Widget _getRow(int i) {
+    return GestureDetector(
+      child: Padding(padding: EdgeInsets.all(10.0), child: Text(ads[i].title)),
+      onTap: () {
+        print("print");
+      },
+    );
   }
 }
 
