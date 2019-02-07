@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'file01.dart';
+import 'file02.dart';
 import 'nav_drawer.dart';
 import 'advert/advertapp.dart';
+import 'platform/battery_level.dart';
 
-void main() => runApp(AdvertApp());
+void main() => runApp(BatteryLevel());
 
 //void main() => runApp(Directionality(
 //    textDirection: TextDirection.ltr,
