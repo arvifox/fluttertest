@@ -28,6 +28,8 @@ dependencies:
 
   xml: ^3.2.5
 
+  supercharged: ^1.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
